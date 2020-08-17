@@ -5,8 +5,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 echo "[+] Starting Update Script..."
 echo "[+] Chroot version $buildver"
-rm /etc/update/version
-wget -P /etc/update/ https://raw.githubusercontent.com/JakeFrostyYT/ChrootUpdateScript/master/version.txt
+wget -P /etc/update/ https://raw.githubusercontent.com/JakeFrostyYT/ChrootUpdateScript/master/version.txt -O version.txt
 newver=$(cat "/etc/update/version.txt")
 if [ $buildver \> $newver ]; then
 	echo "[+] Already on latest update"
@@ -20,7 +19,5 @@ else
 		git clone https://github.com/JakeFrostyYT/ChrootUpdateScript.git "/etc/update/ChrootUpdateScript"
 		chmod 755 /etc/update/ChrootUpdateScript/script.sh
 		/etc/update/ChrootUpdateScript/script.sh
-		rm /root/version
-		mv /etc/update/version /root/version
 	fi
 fi
