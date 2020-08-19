@@ -18,11 +18,11 @@ newver=$(cat "/etc/update/version.txt")
 
 # Compare current build version of chroot to newest version
 # Clone if newest version found and execute the script
-if [ "$buildver" -eq "$newver" ]; then
+if [ $buildver -eq $newver ]; then
 	echo "[+] Already on latest update"
 	exit 1
 else
-	if [ "$newver" -gt "$buildver" ]; then
+	if [ $newver -gt $buildver ]; then
 		echo "[+] New Version $newver available"
 		echo "Proceed with update? y/n"
 		read input
