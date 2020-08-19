@@ -9,6 +9,10 @@ echo "[+] Starting Update Script..."
 echo "[+] Chroot version $buildver"
 
 # Get current version via github repository
+# Take no chances and delete existing if any is found
+if [ -f "/etc/update/version.txt" ]; then
+	rm /etc/update/version.txt
+fi
 wget -P /etc/update/ https://raw.githubusercontent.com/JakeFrostyYT/ChrootUpdateScript/master/version.txt -O version.txt
 newver=$(cat "/etc/update/version.txt")
 
@@ -24,6 +28,7 @@ else
 		read input
 		if [ "$input" == "y" ]; then
 			echo "[+] Updating..."
+			rm -r /etc/update/ChrootUpdateScript/
 			git clone https://github.com/JakeFrostyYT/ChrootUpdateScript.git "/etc/update/ChrootUpdateScript"
 			rm /etc/update/ChrootUpdateScript/version.txt
 			chmod 755 /etc/update/ChrootUpdateScript/script.sh
