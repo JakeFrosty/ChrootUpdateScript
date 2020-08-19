@@ -18,7 +18,7 @@ if [ "$buildver" -eq "$newver" ]; then
 	echo "[+] Already on latest update"
 	exit 1
 else
-	if [ "$buildver" -eq "$newver" ]; then
+	if [ "$newver" -gt "$buildver" ]; then
 		echo "[+] Already on latest update"
 		exit 1
 	else
