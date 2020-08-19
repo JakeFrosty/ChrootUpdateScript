@@ -19,9 +19,6 @@ if [ "$buildver" -eq "$newver" ]; then
 	exit 1
 else
 	if [ "$newver" -gt "$buildver" ]; then
-		echo "[+] Already on latest update"
-		exit 1
-	else
 		echo "[+] New Version $newver available"
 		echo "Proceed with update? y/n"
 		read input
