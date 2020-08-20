@@ -30,6 +30,7 @@ else
 			echo "[+] Updating..."
 			rm -r /etc/update/ChrootUpdateScript/
 			git clone https://github.com/JakeFrostyYT/ChrootUpdateScript.git "/etc/update/ChrootUpdateScript"
+			rm -r /etc/update/ChrootUpdateScript/.git/
 			rm /etc/update/ChrootUpdateScript/version.txt
 			chmod 755 /etc/update/ChrootUpdateScript/script.sh
 			/etc/update/ChrootUpdateScript/script.sh
