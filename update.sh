@@ -13,8 +13,8 @@ echo "[+] Chroot version $buildver"
 if [ -f "/etc/update/version.txt" ]; then
 	rm /etc/update/version.txt
 fi
-wget -P /etc/update/ https://raw.githubusercontent.com/JakeFrostyYT/ChrootUpdateScript/master/version.txt -O version.txt
-newver=$(cat "/etc/update/version.txt")
+wget -P /etc/update/ https://raw.githubusercontent.com/JakeFrostyYT/ChrootUpdateScript/master/version.txt
+newver=$(cat /etc/update/version.txt)
 
 # Compare current build version of chroot to newest version
 # Clone if newest version found and execute the script
