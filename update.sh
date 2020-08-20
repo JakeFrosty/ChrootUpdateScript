@@ -31,11 +31,10 @@ else
 			rm -r /etc/update/ChrootUpdateScript/
 			git clone https://github.com/JakeFrostyYT/ChrootUpdateScript.git "/etc/update/ChrootUpdateScript"
 			rm -r /etc/update/ChrootUpdateScript/.git/
-			rm /etc/update/ChrootUpdateScript/version.txt
 			chmod 755 /etc/update/ChrootUpdateScript/script.sh
 			/etc/update/ChrootUpdateScript/script.sh
 			rm /root/version
-			mv /etc/update/version.txt /root/version
+			mv /etc/update/ChrootUpdateScript/version.txt /root/version
 		fi
 	fi
 fi
