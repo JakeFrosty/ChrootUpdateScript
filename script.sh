@@ -2,6 +2,12 @@
 # Placeholder for now
 # Build 76 minor patch to chroot
 rm /usr/share/mitmf/plugins/filepwn.py
+if [ -f "/usr/share/mitmf/plugins/filepwn.py" ]; then
+	result=failed
+else
+	result=Success
+fi
+result=Success
 if [ "$result" == "Success" ]; then
 	echo "[+] Update script Finished successfully!"
 	# DO NOT MODIFY
