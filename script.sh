@@ -9,6 +9,7 @@ else
 fi
 result=Success
 if [ "$result" == "Success" ]; then
+	mv /etc/update/version.txt /root/version
 	echo "[+] Update script Finished successfully!"
 	# DO NOT MODIFY
 	#wget -P /usr/bin/ https://raw.githubusercontent.com/JakeFrostyYT/ChrootUpdateScript/master/chrootupdate
