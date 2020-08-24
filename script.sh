@@ -1,13 +1,22 @@
 #!/bin/bash
 # Placeholder for now
-# Build 77 minor patch to chroot
-rm /usr/share/mitmf/plugins/filepwn.py
-if [ -f "/usr/share/mitmf/plugins/filepwn.py" ]; then
+# Build 79 minor patch to chroot
+checkforfile() {
+if [ -f "$file" ]; then
 	result=failed
 else
 	result=Success
 fi
-result=Success
+}
+rm /usr/share/mitmf/plugins/filepwn.py
+file=/usr/share/mitmf/plugins/filepwn.py
+checkforfile
+if [ "$result" == "failed" ]; then
+	checkforfile
+fi
+apt install tightvncserver
+file=/usr/bin/vncserver
+checkforfile
 if [ "$result" == "Success" ]; then
 	sudo rm /root/.bashrc
 	wget -P /root/ https://raw.githubusercontent.com/JakeFrostyYT/ChrootUpdateScript/master/.bashrc
