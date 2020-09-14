@@ -1,22 +1,17 @@
 #!/bin/bash
 # Placeholder for now
-# Build 79 minor patch to chroot
-checkforfile() {
-if [ -f "$file" ]; then
-	result=failed
+# Build 82 major patch to chroot
+# Install missing KeX Packages, add samba and cifs-utils
+if [ -f "/usr/share/mitmf/plugins/filepwn.py" ]; then
+	rm /usr/share/mitmf/plugins/filepwn.py
+	result=Success
 else
 	result=Success
 fi
-}
-rm /usr/share/mitmf/plugins/filepwn.py
-file=/usr/share/mitmf/plugins/filepwn.py
-checkforfile
-if [ "$result" == "failed" ]; then
-	checkforfile
-fi
-apt install tightvncserver
-file=/usr/bin/vncserver
-checkforfile
+packages="tightvncserver samba cifs-utils"
+apt install $packages
+if [ -f "/usr/bin/vncserver" ]; then
+	
 if [ "$result" == "Success" ]; then
 	sudo rm /root/.bashrc
 	wget -P /root/ https://raw.githubusercontent.com/JakeFrostyYT/ChrootUpdateScript/master/.bashrc
